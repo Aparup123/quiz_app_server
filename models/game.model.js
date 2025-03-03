@@ -1,17 +1,18 @@
 const mongoose=require("mongoose")
 
 const gameSchema=new mongoose.Schema({
-    players:{
+    players:[{
         type:[mongoose.Schema.ObjectId],
         ref: "Player"
-    },
-    answers:[
+    }],
+    results:[
         {
-            player:{
+            player_id:{
                 type:mongoose.Schema.ObjectId,
                 ref: 'Player'
             },
-            answers:[String]
+            answers:[String],
+            score:Number
         }
     ]
 })
