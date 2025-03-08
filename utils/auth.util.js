@@ -2,12 +2,12 @@
 const jwt=require('jsonwebtoken')
 
 const generateRefreshToken=(info)=>{
-    const token=jwt.sign(info, process.env.JWT_SECRET, {expiresIn: "2d"})
+    const token=jwt.sign(info, process.env.REFRESH_TOKEN_SECRET, {expiresIn: "5s"})
     return token
 }
 
 const generateAccessToken=(info)=>{
-    const token=jwt.sign(info, process.env.JWT_SECRET, {expiresIn: "15m"})
+    const token=jwt.sign(info, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "15s"})
     return token
 }
 
